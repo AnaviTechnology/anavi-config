@@ -16,7 +16,8 @@
     "mqtt"
   ],
   "dependencies": {
-    "express": ">=4.13.4"
+    "express": ">=4.13.4",
+    "body-parser": ">=1.15.0"
   },
   "author": "Leon Anavi <leon@anavi.org>",
   "license": "GPL-3.0",
