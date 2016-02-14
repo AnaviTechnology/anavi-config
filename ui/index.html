@@ -36,12 +36,22 @@
 		<label for="inputServerHost">Port:</label>
 		<input type="text" data-clear-btn="true" name="inputServerPort" id="inputServerPort" value="">
 
-		<input type="button" value="Connect" data-icon="check">
+		<input type="button" id="buttonConnect" value="Connect" data-icon="check">
 		
 		</form>
 
 	</div>
 </div>
+
+<script>
+$( "#buttonConnect" ).bind( "click", function(event, ui) {
+	//TODO: validate input data
+	var data = {};
+	$.post( "/save", function( data ) {
+		//TODO: handle response
+	});
+});
+</script>
 
 </body>
 </html>
