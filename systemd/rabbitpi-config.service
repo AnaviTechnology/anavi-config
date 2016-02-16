@@ -2,7 +2,7 @@
 Description=Web server to configure WiFi, username, password, etc.
 
 [Service]
-ExecStart=/usr/bin/node /opt/rabbitpi-config/index.js 
+ExecStart=/usr/bin/node /opt/rabbitmax-config/index.js 
 
 [Install]
 WantedBy=multi-user.target

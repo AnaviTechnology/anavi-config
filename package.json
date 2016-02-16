@@ -1,5 +1,5 @@
 {
-  "name": "rabbitpi-config",
+  "name": "rabbitmax-config",
   "version": "0.0.1",
   "description": "Configure WiFi, username, password, etc.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RabbitPi/rabbitpi-config.git"
+    "url": "git+https://github.com/RabbitPi/rabbitmax-config.git"
   },
   "keywords": [
     "iot",
@@ -22,11 +22,11 @@
   "author": "Leon Anavi <leon@anavi.org>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/RabbitPi/rabbitpi-config/issues"
+    "url": "https://github.com/RabbitPi/rabbitmax-config/issues"
   },
-  "homepage": "https://github.com/RabbitPi/rabbitpi-config#readme",
+  "homepage": "https://github.com/RabbitPi/rabbitmax-config#readme",
   "preferGlobal": "true",
   "bin": {
-    "rabbitpi-config": "index.js"
+    "rabbitmax-config": "index.js"
   }
 }
