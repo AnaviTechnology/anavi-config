@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RabbitPi/rabbitmax-config.git"
+    "url": "git+https://github.com/RabbitMax/rabbitmax-config.git"
   },
   "keywords": [
     "iot",
@@ -22,9 +22,9 @@
   "author": "Leon Anavi <leon@anavi.org>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/RabbitPi/rabbitmax-config/issues"
+    "url": "https://github.com/RabbitMax/rabbitmax-config/issues"
   },
-  "homepage": "https://github.com/RabbitPi/rabbitmax-config#readme",
+  "homepage": "https://github.com/RabbitMax/rabbitmax-config#readme",
   "preferGlobal": "true",
   "bin": {
     "rabbitmax-config": "index.js"
