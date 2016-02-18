@@ -2,8 +2,30 @@ $(document).on('pagecontainershow', function(e, ui) {
   scan();
 });
 
-$( "#buttonConnect" ).bind( "click", function(event, ui) {
-	//TODO: validate input data
+function showWarning(message) {
+  $('#warningText').text(message);
+  $('#warning').popup('open');
+}
+
+function isValid(id, message) {
+  if (0 === $(id).val().length) {
+    showWarning(message);
+    return false;
+  }
+  return true;
+}
+
+$( '#buttonConnect' ).bind( 'click', function(event, ui) {
+	//validate input
+  if (
+      (false == isValid('#inputUserName', 'Please enter username.')) ||
+      (false == isValid('#inputUserPassword', 'Please enter password.')) ||
+      (false == isValid('#inputServerHost', 'Please specify server host.')) ||
+      (false == isValid('#inputServerPort', 'Please specify server port.'))
+    ) {
+    return;
+  }
+
 	var data = {};
 	$.post( "/save", function( data ) {
 		//TODO: handle response
