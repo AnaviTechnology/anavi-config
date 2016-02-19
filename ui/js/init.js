@@ -32,6 +32,10 @@ $( '#buttonConnect' ).bind( 'click', function(event, ui) {
 	});
 });
 
+function updateWiFiData(wifiName, wifiId, wifiIsOpen, isHidden) {
+  console.log(wifiName + ", " + wifiId + ", " + wifiIsOpen);
+}
+
 function wifiShow(data, status) {
   var html = "<li data-role=\"list-divider\">WiFi Networks:</li>\n";
   if (0 === data.length) {
@@ -39,8 +43,18 @@ function wifiShow(data, status) {
   }
   else {
     for (var network=0; network < data.length; network++) {
-      var name = (0 === data[network].name.length) ? 'Hidden' : data[network].name;
-      html += "<li><a href=\"#\">"+name+"</a></li>\n";
+      if (0 === data[network].name.length) {
+        html += "<li><a href=\"#\" onclick=\"updateWiFiData('', '', false, true)\">Hidden</a></li>\n";
+      }
+      else {
+        html += "<li><a href=\"#\" onclick=\"updateWiFiData('";
+        html += data[network].name.replace(/'/g, "\\'");;
+        html += "', '";
+        html += data[network].id.replace(/'/g, "\\'");;
+        html += "', ";
+        html += data[network].open.toString();
+        html += ", false)\">"+data[network].name+"</a></li>\n";
+      }
     }
   }
   $('#listWiFi').empty();
