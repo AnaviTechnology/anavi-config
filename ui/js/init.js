@@ -26,14 +26,43 @@ $( '#buttonConnect' ).bind( 'click', function(event, ui) {
     return;
   }
 
-	var data = {};
-	$.post( "/save", function( data ) {
-		//TODO: handle response
-	});
+       var inputData = {
+           wifi: {
+           name: $('#wifiName').val(),
+           id: $('#wifiId').val(),
+           hidden: $('#wifiIsOpen').val(),
+           password: $('#wifiIsHidden').val()
+         },
+         mqtt: {
+           username: $('#inputWiFiPassword').val(),
+           password: $('#inputUserName').val(),
+           host: $('#inputServerHost').val(),
+           port: $('#inputServerPort').val()
+         }
+       }
+
+       $.ajax({
+         method: 'POST',
+         url: '/save',
+         data: inputData
+       })
+       .done(function( msg ) {
+         alert( "Saved!" );
+       });
 });
 
-function updateWiFiData(wifiName, wifiId, wifiIsOpen, isHidden) {
-  console.log(wifiName + ", " + wifiId + ", " + wifiIsOpen);
+function updateWiFiData(name, id, isOpen, isHidden) {
+  $('#wifiIsHidden').val(isHidden);
+  if (true === isHidden) {
+    $('#wifiName').val('');
+    $('#wifiId').val('');
+    $('#wifiIsOpen').val(false);
+  }
+  else {
+    $('#wifiName').val(name);
+    $('#wifiId').val(id);                                                     
+    $('#wifiIsOpen').val(isOpen);
+  }
 }
 
 function wifiShow(data, status) {
