@@ -21,6 +21,10 @@ function scan(req, res) {
 				continue;
 			}
 			var wifiName = text[line].substring(0, delimiterPosition).trim();
+			var spacePosition = wifiName.indexOf(' ');
+			if (-1 !== spacePosition) {
+				wifiName = wifiName.substring(spacePosition);
+			}
 			var wifiId = text[line].substring(delimiterPosition).trim();
 			var isOpen = ( -1 !== wifiId.indexOf('_managed_none'));
 			networks.push({ name: wifiName, id: wifiId, open: isOpen });
@@ -33,6 +37,7 @@ app.get('/scan', scan);
 
 app.post('/save', function(req, res) {
 	console.log("post request detected");
+        console.log(req.body);
 	var result = { error: 0, errCode: '' }
 	res.json(result);
 });
