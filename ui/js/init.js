@@ -47,7 +47,10 @@ $( '#buttonConnect' ).bind( 'click', function(event, ui) {
          data: inputData
        })
        .done(function( msg ) {
-         alert( "Saved!" );
+         showLoading('Connecting ...');
+         setTimeout(function () {
+           window.location.href = "http://rabbitmax.com/";
+         }, 30000);
        });
 });
 
@@ -104,14 +107,19 @@ function wifiError() {
   $.mobile.loading('hide');
 }
 
-function scan() {
+function showLoading(message) {
   $.mobile.loading( 'show', {
-    text: 'Loading',
+    text: message,
     textVisible: true,
     theme: 'b',
     textonly: false,
     html: ''
   });
+}
+
+function scan() {
+
+  showLoading('Loading ...');
 
   $.ajax({
     type: 'GET',
