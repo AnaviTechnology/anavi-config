@@ -1,3 +1,4 @@
+const fs = require('fs');
 var sys = require('sys');
 var exec = require('child_process').exec;
 var express = require('express');
@@ -36,8 +37,14 @@ function scan(req, res) {
 app.get('/scan', scan);
 
 app.post('/save', function(req, res) {
-	console.log("post request detected");
-        console.log(req.body);
+        var fileWifiConfig = '/var/lib/connman/wifi.config'
+        // Save WiFi configuration to a file
+        var wifiData = "[service_wifi]\n";
+        wifiData += "Type = wifi\n";
+        wifiData += "Name = " + req.body.wifi.name + "\n";
+        wifiData += "Passphrase = " + req.body.wifi.password + "\n"; 
+        fs.writeFileSync(fileWifiConfig, wifiData);
+        // Provide feedback
 	var result = { error: 0, errCode: '' }
 	res.json(result);
 });
