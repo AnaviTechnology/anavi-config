@@ -30,12 +30,12 @@ $( '#buttonConnect' ).bind( 'click', function(event, ui) {
            wifi: {
            name: $('#wifiName').val(),
            id: $('#wifiId').val(),
-           hidden: $('#wifiIsOpen').val(),
-           password: $('#wifiIsHidden').val()
+           hidden: $('#wifiIsHidden').val(),
+           password: $('#inputWiFiPassword').val()
          },
          mqtt: {
-           username: $('#inputWiFiPassword').val(),
-           password: $('#inputUserName').val(),
+           username: $('#inputUserName').val(),
+           password: $('#inputUserPassword').val(),
            host: $('#inputServerHost').val(),
            port: $('#inputServerPort').val()
          }
